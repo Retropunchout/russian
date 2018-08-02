@@ -1,10 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Russian Learner</title>
 </head>
 <body>
-<script src="js_main.js"></script>
+<h1>Russian Learner</h1>
+<button type="button" id="newQuestion">New Question</button>
+<button type="button" name="todd" id="select1">Select1</button>
+<button type="button" id="select2">Select2</button>
+<p id="p1">Hello World!</p>
+<p id="p2">Hello World!</p>
+
+<script>
+  let newQ = document.getElementById("newQuestion");
+  let sel1 = document.getElementById("select1");
+  let sel2 = document.getElementById("select2");
+  let info = document.getElementById("p1");
+  let point_display = document.getElementById("p2");
+
+  let but_list = [select1,select2];
+  let rand_q = "";
+  let points = 0;
+
+  newQ.onclick = function newQuestionClick() {
+    //get question
+    rand_q = list[Math.floor(Math.random() * list.length)];
+    //set question text
+    info.textContent = rand_q[0];
+
+    //set both buttons
+    let sel1_val = list[Math.floor(Math.random() * list.length)];
+    sel1.value = sel1_val;
+    sel1.textContent = sel1_val[1];
+
+    let sel2_val = list[Math.floor(Math.random() * list.length)];
+    sel2.value = sel2_val;
+    sel2.textContent = sel2_val[1];
+
+    //set one correct at random
+    let ran_but = but_list[Math.floor(Math.random() * but_list.length)];
+    ran_but.value = rand_q;
+    ran_but.textContent = rand_q[1]
+
+  };
+
+  document.getElementById("select1").onclick = function() {selectClick(select1)};
+  document.getElementById("select2").onclick = function() {selectClick(select2)};
+
+
+  function selectClick(sel_but) {
+    if (String(sel_but.value) === String(rand_q)) {
+      info.textContent = "well done";
+      ++points;
+    } else {
+      info.textContent = "nope";
+      --points;
+    }
+    point_display.textContent = "points: " +points;
+  }
+
+  let list;
+  list = [
+[`человек `,`man`],
+[`год `,`year`],
+[`время `,`time`],
+[`рука `,`hand or  arm`],
+[`дело `,`business or  affair or  matter`],
+[`раз `,`time or  once or  since`],
+[`глаз `,`eye; sight`],
+[`жизнь `,`life`],
+[`день `,`day`],
+[`голова `,`head or  mind or  brains`],
+[`друг `,`friend`],
+[`дом `,`house or  home`],
+[`слово `,`word`],
+[`место `,`place; seat`],
+[`лицо `,`face; person`],
+[`сторона `,`side or  party`],
+[`нога `,`foot or  leg`],
+[`дверь `,`door`],
+[`работа `,`work or  job`],
+[`земля `,`earth or  land or  soil`],
+[`конец `,`end or  distance`],
+[`час `,`hour or  time`],
+[`голос `,`voice`],
+[`город `,`town or  city`],
+[`вода `,`water`],
+[`стол `,`table or  desk; board`],
+[`ребёнок `,`child or  kid or  infant`],
+[`сила `,`strength or  force`],
+[`отец `,`father`],
+[`женщина `,`woman`],
+[`машина `,`car or  machine or  engine`],
+[`случай `,`case or  occasion or  incident`],
+[`ночь `,`night`],
+[`мир `,`world or  peace`],
+[`вид `,`appearance or  look or  view`],
+[`ряд `,`row or  line`],
+[`начало `,`beginning or  origin or  source`],
+[`вопрос `,`question or  matter or  problem`],
+[`война `,`war`],
+[`деньги `,`money`],
+[`минута `,`minute or  moment`],
+[`жена `,`wife`],
+[`правда `,`truth`],
+[`страна `,`country`],
+[`свет `,`light; world`],
+[`мать `,`mother`],
+[`товарищ `,`comrade or  friend`],
+[`дорога `,`road or  way or  journey`],
+[`окно `,`window or  windowsill`],
+[`комната `,`a room`]
+  ];
+
+
+</script>
 </body>
 </html>
