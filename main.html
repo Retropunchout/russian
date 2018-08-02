@@ -7,17 +7,21 @@
 </head>
 <body>
 <h1>Russian Learner</h1>
+
 <button type="button" id="newQuestion">New Question</button>
+<h2 id="p1">Press new question to start</h2>
+<br>
 <button type="button" name="todd" id="select1">Select1</button>
 <button type="button" id="select2">Select2</button>
-<p id="p1">Hello World!</p>
-<p id="p2">Hello World!</p>
+
+<h2 id="p2">0</h2>
 
 <script>
   let newQ = document.getElementById("newQuestion");
+  let info = document.getElementById("p1");
   let sel1 = document.getElementById("select1");
   let sel2 = document.getElementById("select2");
-  let info = document.getElementById("p1");
+
   let point_display = document.getElementById("p2");
 
   let but_list = [select1,select2];
